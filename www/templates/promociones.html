@@ -1,0 +1,16 @@
+<ion-view view-title="ADService">
+  <ion-content>
+    <ion-refresher
+		pulling-text="Refrescar..."
+		on-refresh="doRefresh()">
+		</ion-refresher>
+    <h2>Empresas</h2>
+    <ion-list>
+      <ion-item ng-repeat="promociones in promociones" id="{{promociones.empresa}}" href="#/app/map/" class="item-avatar"
+                >
+                <img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/categorias/{{promociones._id}}.png" >
+                <h2>{{promociones.descripcion}}</h2>
+                </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

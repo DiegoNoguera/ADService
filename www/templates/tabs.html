@@ -1,0 +1,77 @@
+
+
+  <ion-menu>
+  <ion-tabs class="tabs-icon-top tabs-positive tabs-top">
+
+    <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+      <ion-nav-view name="home-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Settings" icon="ion-gear-a" href="#/tab/settings" >
+      <ion-nav-view name="settings-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Sign-Out" icon="ion-log-out">
+    </ion-tab>
+
+  </ion-tabs>
+</ion-menu>
+  <ion-side-menus>
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-stable">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+   <!--
+        <div class="tabs tabs-top tabs-icon-left  bar bar-subheader" >
+      <a class="tab-item" href="#/app/profiles">
+        <i class="icon"></i>
+        Promociones
+      </a>
+      <a class="tab-item" href="#/app/categoria">
+        <i class="icon"></i>
+        Categorias
+      </a>
+      <a class="tab-item" href="#/app/empresa">
+        <i class="icon"></i>
+        Empresas
+      </a>
+    </div> -->
+
+
+
+      <ion-nav-view name="menuContent">    </ion-nav-view>
+    </ion-side-menu-content>
+
+
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Menu</h1>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item menu-close href="#/app/categorias" >
+            Home
+          </ion-item>
+          <ion-item menu-close href="#/app/search">
+            Favoritos
+          </ion-item>
+          <ion-item menu-close ng-click="login()">
+            Encuesta
+          </ion-item>
+          <ion-item menu-close ng-click="login()">
+            Iniciar Sesion
+          </ion-item>
+
+        </ion-list>
+
+
+      </ion-content>
+    </ion-side-menu>
+
+  </ion-side-menus>

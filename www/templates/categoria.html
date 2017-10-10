@@ -1,0 +1,17 @@
+<ion-view view-title="ADService">
+  <ion-content>
+    <ion-refresher
+		pulling-text="Refrescar..."
+		on-refresh="doRefresh()">
+		</ion-refresher>
+    <h2>Empresas</h2>
+    <ion-list>
+      <ion-item ng-repeat="categoria in categoria" id="{{categoria._id}}" href="#/app/categoria/{{categoria._id}}" class="item-avatar"
+                >
+                <img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/categorias/{{categoria._id}}.png" >
+                <h2>{{categoria.nombre}}</h2>
+                </ion-item>
+    </ion-list>
+  </ion-content>
+  <script src="../js/services.js"></script> 
+</ion-view>

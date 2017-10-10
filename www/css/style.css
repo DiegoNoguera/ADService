@@ -1,0 +1,12 @@
+/* Empty. Add your own CSS if you like */
+#map { height: 100%; width: 100%;}
+
+.item-content {
+  background-color: red;
+}
+.ionic .custom-thumbnail > img:first-child, .ionic .custom-thumbnail .item-image, .ionic .custom-thumbnail .item-content > img:first-child, .ionic .custom-thumbnail .item-content .item-image {
+    top: 0px ;
+    left: 0px ;
+    max-width: 10px;
+    max-height: 10px;
+}

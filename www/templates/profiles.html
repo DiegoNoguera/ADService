@@ -1,0 +1,12 @@
+<ion-view view-title="Profiles">
+  <ion-content>
+    <ion-refresher
+		pulling-text="Refrescar..."
+		on-refresh="doRefresh()">
+		</ion-refresher>
+    <ion-list>
+      <ion-item ng-repeat="profile in profiles"
+                href="#/app/profile/{{profile._id}}">{{profile.nombre}}</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

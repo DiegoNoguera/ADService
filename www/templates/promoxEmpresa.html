@@ -1,0 +1,26 @@
+<ion-view view-title="ADService">
+
+    <h1>Empresas</h1>
+    <ion-list>
+      <ion-item ng-repeat="empresas in empresas" id="{{empresa._id}}" href="#/app/map/"
+              class="item-thumbnail-left"  >
+              <img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/categorias/"+{{empresas._id}}+".png" >
+      				<h2 >{{empresas.empresaname}}</h2 >
+
+      				<p >
+      					<span >
+      						<i class="ion ion-ios-navigate" ></i >
+      						{{empresas.location[0] | number:"0"}}km</span >
+      				</p >
+              <p>
+                <a ng-href=tel:{{empresas.cellphone}} class="button button-positive">Llamar</a>
+
+              </p>
+      				<p >
+      					<i class="ion ion-ios-location" ></i >
+      					{{empresas.direccion }}
+      				</p >
+              </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

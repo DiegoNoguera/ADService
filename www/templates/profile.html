@@ -1,0 +1,9 @@
+<ion-view view-title="ADService">
+  <ion-content>
+    <h1>Empresas</h1>
+    <ion-list>
+      <ion-item ng-repeat="categoria in categoria" id="{{categoria._id}}" href="#/app/categoria/{{categoria._id}}"
+                >{{categoria.nombre}}</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
