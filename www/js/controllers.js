@@ -3,7 +3,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$location, $sco
     $scope.profile = auth.profile;
   $scope.openMenu = function () {
       $ionicSideMenuDelegate.toggleLeft();
-  //    $ionicNavBarDelegate.show(true);
+      $ionicNavBarDelegate.show(true);
     }
 
     $scope.logout = function() {
@@ -80,6 +80,7 @@ app.controller('Categoria',function($scope,$http,$stateParams,auth){
     	}); });
 app.controller('CatEmpresa',function($scope,$http,$stateParams,auth){
 
+          $scope.listCanSwipe = true;
             var currentId = $stateParams.categoriaId;
             console.log($stateParams.categoriaId);
 
@@ -95,6 +96,7 @@ app.controller('CatEmpresa',function($scope,$http,$stateParams,auth){
 
           	}); });
 app.controller('Empresas',function($scope,$http,$stateParams, auth){
+  $scope.listCanSwipe = true;
 
 
                 	$http.get('https://frozen-ridge-27058.herokuapp.com/empresas').success(function(response){
@@ -152,14 +154,38 @@ app.controller('PromoEmpresa',function($scope,$http,$stateParams,auth){
 app.controller('favorito',function($scope,$http,$stateParams, auth){
                   var currentId = $stateParams.empresasId;
                   console.log($stateParams.empresasId);
+                  console.log(auth.profile);
+                  var profile = auth.profile;
+                  console.log(profile.user_id);
 
-                	$http.put('https://frozen-ridge-27058.herokuapp.com/empresa/'+currentId).success(function(response){
 
-                	  console.log("I got the data i requested for Bugs", response);
+          $scope.addfavorito = function(data){
+            console.log(profile);
+            var userid = profile.user_id;
+            console.log(data);
+          	$http.post('https://frozen-ridge-27058.herokuapp.com/empresas/'+currentId, {favorito:profile.email}).success(function(response){
+                console.log(response);
+
                     $scope.alert = "Favoritos agregada Sastifactoriamente";
                   	  $scope.empresas = response;
-}); });
+                      });
+                    };
+ });
+ app.controller('FavEmpresa',function($scope,$http,$stateParams,auth){
+                  $scope.listCanSwipe = true;
+                  var fav = auth.profile;
+                  var currentId = fav.email;
+                   //var currentId = faviden.user_id;
+                   console.log(fav);
+                   console.log(currentId);
 
+
+                 	$http.get('https://frozen-ridge-27058.herokuapp.com/favoritos/'+currentId).success(function(response){
+
+                 	  console.log("I got the data i requested for Bugs", response);
+
+                   	  $scope.empresas = response;
+ }); });
 //Iniciar sesion con Auth y Firebase
 app.controller('LoginCtrl', function($scope, auth, $state, $location, store) {
   console.log('LoginCtrl');
@@ -244,7 +270,7 @@ google.maps.event.addListenerOnce($scope.map, 'idle', function(){
 
 });
 
-app.controller("mapController", function ($scope, EmpresaService, $stateParams,$http, auth, $cordovaGeolocation, $filter) {
+app.controller("mapController", function ($scope, EmpresaService, $stateParams,$http, auth, $cordovaGeolocation, $filter, $ionicPopup,$cordovaLaunchNavigator) {
 	$scope.yelp = EmpresaService;
 
 
@@ -273,12 +299,14 @@ console.log($scope.empresa);
 		}
 	};
 
-	$scope.getDirections = function (empresa) {
-    console.log(empresa.empresaname);
+	$scope.getDirections1 = function (empresa) {
+    console.log(empresa);
+    var business = empresa;
+    console.log(business);
 		console.log("Getting directions for empresa");
 		var destination = [
-			empresa.location[1],
-      empresa.location[0]
+			business[0].location[1],
+      business[0].location[0]
 		];
 console.log(destination);
 		var source = [
@@ -288,6 +316,28 @@ console.log(destination);
 
 		launchnavigator.navigate(destination, source);
 	};
+
+  $scope.getDirections = function(empresa) {
+    console.log(empresa);
+    var business = empresa;
+    console.log(business);
+    console.log("Getting directions for empresa");
+    var destination = [
+      business[0].location[1],
+      business[0].location[0]
+    ];
+    console.log(destination);
+	var start = [
+    $scope.yelp.lat,
+    $scope.yelp.lon
+  ];
+  console.log(start);
+    $cordovaLaunchNavigator.navigate(destination, start).then(function() {
+      console.log("Navigator launched");
+    }, function (err) {
+      console.error(err);
+    });
+  };
 
 
 });

@@ -1,6 +1,6 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+<ion-side-menus enable-menu-with-back-views="true" >
+  <ion-side-menu-content class="menu1" >
+    <ion-nav-bar class="bar-dark">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -14,13 +14,13 @@
 
      <ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-positive">
 
-       <ion-tab title="Promociones" icon="ion-ios-information" href="#/app/promocion">
+       <ion-tab title="Promociones" icon="ion-ios-pricetag-outline" href="#/app/promocion">
      <ion-nav-view name="promociones-tab">Promociones</ion-nav-view> Promociones
      </ion-tab>
-     <ion-tab title="Categoria" icon="ion-ios-pulse-strong" href="#/app/categoria">
+     <ion-tab title="Categoria" icon="ion-model-s" href="#/app/categoria">
      <ion-nav-view name="categoria-tab"></ion-nav-view>
      </ion-tab>
-     <ion-tab title="Empresas" icon="ion-ios-people" href="#/app/empresa">
+     <ion-tab title="Empresas" icon="ion-ios-briefcase" href="#/app/empresa">
      <ion-nav-view name="empresa-tab"></ion-nav-view>
      </ion-tab>
        <!--    <a class="tab-item" href="#/app/promocion">
@@ -44,7 +44,7 @@
 
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
+    <ion-header-bar class="bar-dark">
 
       <h1 class="title">Menu</h1>
 
@@ -61,19 +61,21 @@
             <i class="icon ion-email"></i>
               Check mail
           </ion-item> -->
-        <ion-item  href="#/app/categorias" class="item-icon-left" >
-          <img name="icon ion-home"></img>
+        <ion-item  href="#/app/categoria" class="item-icon-left" >
+          <i class="icon ion-android-home"></i>
           Home
         </ion-item >
-        <ion-item menu-close href="#/app/search" class="item-icon-left">
-          <i class="ion-ios7-star-outline"></i>
+        <ion-item menu-close  class="item-icon-left" href="#/app/FavEmpresa">
+          <i class="icon ion-android-star"></i>
           Favoritos
         </ion-item >
-        <ion-item menu-close href="#/app/login" class="item-icon-left">
+        <ion-item menu-close  class="item-icon-left" href="https://docs.google.com/forms/d/e/1FAIpQLSfn2nzDdTXmJg1bg0L2ZdnYPfk3d4OH-INiwO_bcN7O5KednA/viewform?c=0&w=1">
+          <i class="icon ion-clipboard"></i>
           Encuesta
         </ion-item>
-        <ion-item menu-close class="item-content" ng-click="logout()">
-          Cerrar Sesion
+        <ion-item menu-close class="item-icon-left" ng-click="logout()">
+          <i class="icon ion-android-exit"></i>
+           Cerrar Sesion
         </ion-item>
 
       </ion-list>

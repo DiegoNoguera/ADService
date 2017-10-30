@@ -10,3 +10,28 @@
     max-width: 10px;
     max-height: 10px;
 }
+.custom-icon {
+ font-size: 100px;
+  color : blue;
+}
+.custom-icon1 {
+ font-size: 1px;
+  color : blue;
+  height: 2px;
+    width: 20%;
+  align-items: stretch ;
+
+}
+
+.table1 {
+  font-size: 25px;
+   color : black;
+   size:50%;
+}
+#grad {
+  background: white; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#FFFFFF, #FDFCFB, #F0EBEA); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#FFFFFF, #FDFCFB, #F0EBEA); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#FFFFFF, #FDFCFB, #F0EBEA); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#FFFFFF, #FDFCFB, #F0EBEA); /* Standard syntax */
+}

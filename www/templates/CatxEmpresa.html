@@ -1,7 +1,7 @@
-<ion-view view-title="ADService">
-
-    <h1>Empresas</h1>
-    <ion-list>
+<ion-view view-title="ADService" id="grad">
+  <ion-content >
+    <h1 color="white">Empresas</h1>
+  <!--  <ion-list>
       <ion-item ng-repeat="empresas in empresas" id="{{empresas._id}}" href="#/app/map/{{empresas._id}}"
               class="item-thumbnail-left"  >
               <img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/empresas/{{empresas._id}}.png" >
@@ -13,7 +13,7 @@
       						{{empresas.location[0] | number:"0"}}km</span >
       				</p >
               <p>
-                <a ng-href=tel:{{empresas.cellphone}} class="button button-positive">Llamar</a>
+                <a ng-href=tel:{{empresas.cellphone}} class="button button-icon icon ion-ios-telephone custom-icon"></a>
 
               </p>
       				<p >
@@ -21,7 +21,28 @@
       					{{empresas.direccion }}
       				</p >
               </ion-item>
-    </ion-list>
+    </ion-list> -->
+
+    <ion-list
+          can-swipe="listCanSwipe">
+  <ion-item ng-repeat="empresas in empresas | orderBy : 'empresaname'"
+            class="item-avatar item-text-wrap" id="{{empresas._id}}" href="#/app/map/{{empresas._id}}">
+
+    <img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/empresas/{{empresas._id}}.png" />
+    <h2 >{{empresas.empresaname}}</h2 >
+      <p>
+        <i class="ion ion-ios-location" ></i >
+        {{empresas.direccion }}
+      </p >
+    <ion-option-button >
+                       <a ng-href=tel:{{empresas.cellphone}} class="button button-icon icon ion-ios-telephone custom-icon"></a>
+                       Llamar
+    </ion-option-button>
+
+
+
+  </ion-item>
+</ion-list>
   </ion-content>
   <script src="../js/mapservices.js"></script>
 

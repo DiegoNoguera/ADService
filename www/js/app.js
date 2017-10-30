@@ -95,6 +95,15 @@ app.config(function($stateProvider, $urlRouterProvider,authProvider, $httpProvid
       }
     }
   })
+  .state('app.FavEmpresa', {
+    url: '/FavEmpresa',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/CatxEmpresa.html',
+        controller: 'FavEmpresa'
+      }
+    }
+  })
   .state('app.map', {
     url: '/map/:empresasId',
     views: {
@@ -112,7 +121,7 @@ app.config(function($stateProvider, $urlRouterProvider,authProvider, $httpProvid
     authProvider.init({
       domain: AUTH0_DOMAIN,
         clientID: AUTH0_CLIENT_ID,
-        //packageIdentifier: AUTH0_PACKAGE_ID,
+        packageIdentifier: AUTH0_PACKAGE_ID,
         loginState: 'app.login'
    });
 

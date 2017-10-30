@@ -1,7 +1,14 @@
 
 
 <ion-nav-view>
-    <ion-content scroll="false" id="map">
+
+    <ion-content scroll="true" id="map">
+
+
+
+
+
+        <h1>Empresas</h1>
         <map center="{{yelp.lat}}, {{yelp.lon}}"
              zoom="13"
              disable-default-u-i="true">
@@ -15,22 +22,27 @@
             position="{{[empresas.location[1], empresas.location[0]]}}" >
          </marker>
        </map>
+
        <div class="button button-small button-assertive"
 					ng-click="getDirections(empresa)">Get Directions</div >
 		</div >
        <div class="list-inset">
 
 
-       <ion-list>
-              <ion-item class="item-icon-left" ng-repeat="empresas in empresa">
+       <ion-list class="item-text-wrap" ng-repeat="empresas in empresa">
+         <ion-item class="item-icon-left" ng-click="getDirections(empresa)">
+            <i class="icon ion-android-compass"></i>
+            Cómo llegar
+  </ion-item>
+              <ion-item class="item-icon-left" >
                  <i class="icon ion-information"></i>
                  {{empresas.descripcion}}
        </ion-item>
-       <ion-item class="item-icon-left" ng-repeat="empresas in empresa">
+       <ion-item class="item-icon-left" >
           <i class="icon ion-android-locate"></i>
           {{empresas.direccion}}
 </ion-item>
-<ion-item class="item-icon-left" ng-repeat="empresas in empresa">
+<ion-item class="item-icon-left">
    <i class="icon ion-email"></i>
    {{empresas.email}}
 </ion-item>
@@ -41,11 +53,19 @@
        </ion-item> -->
        <ion-list ng-controller="empresaServlist">
          <h2>Servicios</h2>
-         <ion-item ng-repeat="servicio in servicio">{{servicio.nombre}}
+         <ion-item class="item-icon-left" ng-repeat="servicio in servicio" >
+           <h3>{{servicio.nombre}}</h3>
+           <p>{{servicio.precio}} Gs.</p>
          </ion-item>
        </ion-list>
-       <button ng-controller="favorito" type="submits" name="button" value="{{profile.identities[0].user_id}}"> Favoritos</button>
 
+
+
+          <a ng-controller="favorito"  class="button button-icon icon .custom-icon1"  name="button" ng-click="addfavorito({{profile.identities[0].user_id}})">
+          <img src="http://res.cloudinary.com/dlyd4ztbb/image/upload/c_scale,w_60/v1508820397/fav_bsczsy.png" alt=""></a>
+
+
+       <!--<button ng-controller="favorito" type="submits" name="button" ng-click="addfavorito({{profile.identities[0].user_id}})" > Favoritos</button> -->
     </ion-content>
 
 

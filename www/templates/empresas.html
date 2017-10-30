@@ -1,17 +1,18 @@
 <ion-view view-title="Empresas">
  <ion-content >
-		<ion-refresher
+		<!--<ion-refresher
 		pulling-text="Refrescar..."
 		on-refresh="doRefresh()">
-		</ion-refresher>
-		<ion-list >
+  </ion-refresher> -->
+    <h1 color="white">Empresas</h1>
+		<!--<ion-list >
 
-			<ion-item ng-repeat="empresa in empresa"
+			<ion-item ng-repeat="empresa in empresa | orderBy : 'empresaname'"
 			          class="item-thumbnail-left" id="{{empresa._id}}" href="#/app/map/{{empresa._id}}">
 				<img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/empresas/{{empresa._id}}.png" />
 				<h2 >{{empresa.empresaname}}</h2 >
           <p>
-            <a ng-href=tel:{{empresas.cellphone}} class="button button-positive">Llamar</a>
+            <a ng-href=tel:{{empresas.cellphone}} class="button button-icon icon ion-ios-telephone custom-icon"></a>
 
           </p>
 				<p >
@@ -25,16 +26,37 @@
 					<i class="ion ion-ios-location" ></i >
 					{{empresa.direccion }}
 				</p >
-				<!--<p >
+			//	<p >
 					<span >
 						<i class="ion ion-star" ></i >
 						{{empresa.rating}}</span >
 					<span >
 						<i class="ion ion-person" ></i >
 						{{empresa.review_count}}</span >
-				</p > -->
+				</p > //
 			</ion-item >
-		</ion-list >
+		</ion-list > -->
+
+    <ion-list
+          can-swipe="listCanSwipe">
+  <ion-item ng-repeat="empresa in empresa | orderBy : 'empresaname'"
+            class="item-avatar item-text-wrap" id="{{empresa._id}}" href="#/app/map/{{empresa._id}}">
+
+    <img ng-src="http://res.cloudinary.com/dlyd4ztbb/image/upload/v1497936573/empresas/{{empresa._id}}.png" />
+    <h2 >{{empresa.empresaname}}</h2 >
+      <p>
+        <i class="ion ion-ios-location" ></i >
+        {{empresa.direccion }}
+      </p >
+    <ion-option-button ng-href=tel:{{empresas.cellphone}} vertically overflow-scroll="true">
+                       <a  class="button button-icon icon ion-ios-telephone custom-icon"></a>
+                       Llamar
+    </ion-option-button>
+
+
+
+  </ion-item>
+</ion-list>
 	</ion-content >
   <script src="../js/mapservices.js"></script>
 
